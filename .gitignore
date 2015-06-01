@@ -40,6 +40,10 @@ htmlcov/
 nosetests.xml
 coverage.xml
 
+*.tar
+*.gz
+*.zip
+
 # Translations
 *.mo
 *.pot
@@ -49,6 +53,17 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+MANIFEST
 
 # PyBuilder
 target/
