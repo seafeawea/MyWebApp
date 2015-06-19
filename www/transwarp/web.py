@@ -1501,7 +1501,7 @@ class WSGIApplication(object):
             fn = getattr(m, name)
             if callable(fn) and \
                 hasattr(fn, '__web_route__') and \
-                    hasattr(fn, '__web_method__'):
+                hasattr(fn, '__web_method__'):
                 self.add_url(fn)
 
     def add_url(self, func):

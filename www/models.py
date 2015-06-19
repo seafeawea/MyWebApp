@@ -12,6 +12,7 @@ from transwarp.db import next_id
 from transwarp.orm import Model, StringField, BooleanField, FloatField, TextField
 
 
+# insert into users (id, email, password, admin, name, image, created_at) values ('1000', 'bob@test.org', '123456', true, 'Bob', 'blank', '123');
 class User(Model):
     __table__ = 'users'
 

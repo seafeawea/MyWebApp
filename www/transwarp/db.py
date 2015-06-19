@@ -474,6 +474,7 @@ def insert(table, **kw):
     IntegrityError: 1062 (23000): Duplicate entry '2000' for key 'PRIMARY'
     """
     cols, args = zip(*kw.iteritems())
+    # example: insert into user (id, name, email, passwd, last_modified) values (2000, 'Bob', 'bob@test.org', 'bobobob','123456')
     sql = 'insert into `%s` (%s) values (%s)' % (table, ','.join(['`%s`' % col for col in cols]), ','.join(['?' for i in range(len(cols))]))
     return _update(sql, *args)
 
