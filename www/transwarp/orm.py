@@ -269,7 +269,7 @@ class Model(dict):
         self[key] = value
 
     @classmethod
-    def get(cls,pk):
+    def get(cls,pk):    # cls: class of instance
         """
         Get by primary key.
         """

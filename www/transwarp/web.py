@@ -988,7 +988,7 @@ class Response(object):
         L = [(_RESPONSE_HEADER_DICT.get(k, k), v) for k, v in self._headers.iteritems()]
         if hasattr(self, '_cookies'):
             for v in self._cookies.itervalues():
-                L.append(('Set-Cookie'), v)
+                L.append(('Set-Cookie', v))
         L.append(_HEADER_X_POWERED_BY)
         return L
 
@@ -1378,7 +1378,7 @@ def _build_interceptor_fn(func, next):
     def _wrapper():
         # if function (func.__interceptor__)(this is a function) match ctx.request.path_info
         if func.__interceptor__(ctx.request.path_info):
-            # Insert the next() at end of func
+            # The next() at end of func
             return func(next)
         else:
             return next()
