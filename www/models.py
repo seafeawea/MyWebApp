@@ -12,6 +12,10 @@ from transwarp.db import next_id
 from transwarp.orm import Model, StringField, BooleanField, FloatField, TextField
 
 
+def next_id():
+    return '%015d%s000' % (int(time.time() * 1000), uuid.uuid4().hex)
+
+# example in MySQL
 # insert into users (id, email, password, admin, name, image, created_at) values ('1000', 'bob@test.org', '123456', true, 'Bob', 'blank', '123');
 class User(Model):
     __table__ = 'users'
@@ -24,6 +28,7 @@ class User(Model):
     image = StringField(ddl='varchar(500)')
     created_at = FloatField(updatable=False, default=time.time)
 
+
 class Blog(Model):
     __table__ = 'blogs'
 
@@ -35,6 +40,7 @@ class Blog(Model):
     summary = StringField(ddl='varchar(200)')
     content = TextField()
     created_at = FloatField(updatable=False, default=time.time)
+
 
 class Comment(Model):
     __table__ = 'comments'
